@@ -61,6 +61,8 @@ namespace PayrollApplication
                 Console.WriteLine(item.ToString());
                 Console.WriteLine("Pay: {0:c}\n", item.Pay());
             }
+
+            Console.ReadLine();
         }
     }
 }

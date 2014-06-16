@@ -10,6 +10,57 @@ namespace PayrollApplication
     {
         static void Main(string[] args)
         {
+            // create list of staffmembers
+            List<StaffMember> staff = new List<StaffMember>();
+
+            // add volunteer
+            Volunteer vol = new Volunteer("VolunteerFirstName", "VolunteerLastName", "volunteer@org.TLD");
+            staff.Add(vol);
+            // add executive with good profits
+            Executive goodExec = new Executive("GoodExecFirstName", "GoodExecLastName", "goodexecutive@org.TLD", "111-111-1111", 10000M);
+            goodExec.CalculateBonus(1000000M);
+            staff.Add(goodExec);
+            // add executive with ok profits
+            Executive okExec = new Executive("OKExecFirstName", "OKExecLastName", "okexecutive@org.TLD", "555-555-5555", 10000M);
+            okExec.CalculateBonus(1000M);
+            staff.Add(okExec);
+            // add executive with negative profits
+            Executive zeroExec = new Executive("ZeroExecFirstName", "ZeroExecLastName", "zeroexecutive@org.TLD", "666-66-6666", 10000M);
+            zeroExec.CalculateBonus(-1000M);
+            staff.Add(zeroExec);
+            // add hourly
+            Hourly norm = new Hourly("NormFirstName", "NormLastName", "norm@org.TLD", "222-222-2222", 7.25M, 29);
+            staff.Add(norm);
+            // add overworked hourly
+            Hourly over = new Hourly("OverFirstName", "OverLastName", "over@org.TLD", "333-333-3333", 9M, 45);
+            staff.Add(over);
+            // add hourly with less than 0 hours
+            try
+            {
+                Hourly under = new Hourly("UnderFirstName", "UnderLastName", "under@org.TLD", "444-44-4444", 7.25M, -5);
+                staff.Add(under);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            // create employee (hourly) with less than zero payrate
+            try
+            {
+                Hourly poor = new Hourly("PoorFirstName", "PoorLastName", "poor@org.TLD", "666-666-6666", -10M, 60);
+                staff.Add(poor);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            // iterate through list of staffmembers and print member and pay
+            foreach (StaffMember item in staff)
+            {
+                Console.WriteLine(item.ToString());
+                Console.WriteLine("Pay: {0:c}\n", item.Pay());
+            }
         }
     }
 }

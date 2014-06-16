@@ -17,7 +17,10 @@ namespace PayrollApplication
         public Hourly(string firstName, string lastName, string emailAddress, string ssn, decimal payRate, int hoursWorked)
             : base(firstName, lastName, emailAddress, ssn, payRate)
         {
-            this.hoursWorked = hoursWorked;
+            if (hoursWorked < 0)
+                throw new ArgumentOutOfRangeException("hoursWorked", "hoursWorked must be greater than or equal to zero");
+            else
+                this.hoursWorked = hoursWorked;
         }
 
         public override string ToString()

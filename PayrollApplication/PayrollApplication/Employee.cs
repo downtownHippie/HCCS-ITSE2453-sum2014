@@ -31,7 +31,12 @@ namespace PayrollApplication
             : base(firstName, lastName, emailAddress)
         {
             this.ssn = ssn;
-            this.payRate = payRate;
+            if (payRate <= 0M)
+            {
+                throw new ArgumentOutOfRangeException("payRate", "payRate must be greater than zero");
+            }
+            else
+                this.PayRate = payRate;
         }
 
         public override string ToString()

@@ -40,7 +40,7 @@ namespace PayrollApplication
 
         public override decimal Pay()
         {
-            return this.PayRate + this.bonus;S
+            return this.PayRate + this.bonus;
         }
     }
 }

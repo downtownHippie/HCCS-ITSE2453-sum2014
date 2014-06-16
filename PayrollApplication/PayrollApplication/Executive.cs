@@ -24,7 +24,7 @@ namespace PayrollApplication
             if (netProfit > this.PayRate)
                 this.bonus = this.PayRate * 0.03M;
             else if (netProfit > 0)
-                this.bonus = this.PayRate * 0.01M;
+                this.bonus = netProfit * 0.01M;
             else
                 this.bonus = 0M;
         }

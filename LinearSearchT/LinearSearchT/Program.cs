@@ -19,13 +19,13 @@ namespace LinearSearchT
 
         public static int Search<T>(T key, List<T> alist) where T : IComparable<T>
         {
-            return alist.FindIndex(x => x.Equals(key));
-            //for (int i = 0; i < alist.Count; i++)
-            //{
-            //    if (alist[i].Equals(key))
-            //        return i;
-            //}
-            //return -1;
+            //return alist.FindIndex(x => x.Equals(key));
+            for (int i = 0; i < alist.Count; i++)
+            {
+                if (alist[i].Equals(key))
+                    return i;
+            }
+            return -1;
         }
 
         public static List<int> createIntegers()

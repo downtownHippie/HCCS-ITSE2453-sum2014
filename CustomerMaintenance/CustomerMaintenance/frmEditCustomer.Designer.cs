@@ -108,7 +108,7 @@ namespace CustomerMaintenance
             this.btnSave.Text = "&Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // frmAddCustomer
+            // frmEditCustomer
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,8 +126,8 @@ namespace CustomerMaintenance
             this.Controls.Add(this.btnSave);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
-            this.Name = "frmAddCustomer";
-            this.Text = "Add Customer";
+            this.Name = "frmEditCustomer";
+            this.Text = "Edit Customer";
             this.ResumeLayout(false);
             this.PerformLayout();
 

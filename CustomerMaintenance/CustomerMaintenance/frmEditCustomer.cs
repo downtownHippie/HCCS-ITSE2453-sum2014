@@ -13,9 +13,13 @@ namespace CustomerMaintenance
    
     public partial class frmEditCustomer : Form
     {
-        public frmEditCustomer()
+        public frmEditCustomer(Customer customer)
         {
             InitializeComponent();
+            this.customer = customer;
+            txtFirstName.Text = customer.FirstName;
+            txtLastName.Text = customer.LastName;
+            txtEmail.Text = customer.Email;
         }
 
         private Customer customer = null;

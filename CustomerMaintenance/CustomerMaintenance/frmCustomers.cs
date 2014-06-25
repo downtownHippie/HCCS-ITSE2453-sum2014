@@ -78,5 +78,16 @@ namespace CustomerMaintenance
         {
             this.Close();
         }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        {
+            int i = lstCustomers.SelectedIndex;
+            if (i != -1)
+            {
+                Customer customer = cl[i];
+                frmEditCustomer frmE = new frmEditCustomer(customer);
+                cl[i] = frmE.GetNewCustomer();
+            }
+        }
     }
 }

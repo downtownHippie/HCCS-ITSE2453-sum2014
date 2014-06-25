@@ -13,26 +13,38 @@ namespace CustomerMaintenance
   
     public partial class frmCustomers : Form
     {
+        //private List<Customer> customers = null;
+        CustomerList cl = new CustomerList();
+
         public frmCustomers()
         {
             InitializeComponent();
+            cl.Changed += new CustomerList.ChangeHandler(listChange);
         }
 
-        private List<Customer> customers = null;
+        private void listChange(CustomerList cl)
+        {
+            cl.Save();
+            FillCustomerListBox();
+        }
 
         private void frmCustomers_Load(object sender, EventArgs e)
         {
-            customers = CustomerDB.GetCustomers();
+            cl.Fill();
             FillCustomerListBox();
         }
 
         private void FillCustomerListBox()
         {
             lstCustomers.Items.Clear();
-            foreach (Customer c in customers)
+            for (int i = 0; i < cl.Count; i++)
             {
-                lstCustomers.Items.Add(c.GetDisplayText());
+                lstCustomers.Items.Add(cl[i].GetDisplayText());
             }
+            //foreach (Customer c in customers)
+            //{
+            //    lstCustomers.Items.Add(c.GetDisplayText());
+            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -41,9 +53,7 @@ namespace CustomerMaintenance
             Customer customer = addCustomerForm.GetNewCustomer();
             if (customer != null)
             {
-                customers.Add(customer);
-                CustomerDB.SaveCustomers(customers);
-                FillCustomerListBox();
+                cl.Add(customer);
             }
         }
 
@@ -52,16 +62,14 @@ namespace CustomerMaintenance
             int i = lstCustomers.SelectedIndex;
             if (i != -1)
             {
-                Customer customer = (Customer)customers[i];
+                Customer customer = cl[i];
                 string message = "Are you sure you want to delete "
                     + customer.FirstName + " " + customer.LastName + "?";
                 DialogResult button = MessageBox.Show(message, "Confirm Delete",
                     MessageBoxButtons.YesNo);
                 if (button == DialogResult.Yes)
                 {
-                    customers.Remove(customer);
-                    CustomerDB.SaveCustomers(customers);
-                    FillCustomerListBox();
+                    cl.Remove(customer);
                 }
             }
         }

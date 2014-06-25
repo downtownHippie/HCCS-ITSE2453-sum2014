@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerDB.cs" />
+    <Compile Include="CustomerList.cs" />
     <Compile Include="frmAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>

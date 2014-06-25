@@ -63,7 +63,7 @@ namespace CustomerMaintenance
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(308, 94);
+            this.btnExit.Location = new System.Drawing.Point(308, 91);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 9;

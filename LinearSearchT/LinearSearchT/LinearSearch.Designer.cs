@@ -30,7 +30,7 @@
         {
             this.buttonCreateIntegers = new System.Windows.Forms.Button();
             this.buttonCreateDoubles = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelEnterSearchKey = new System.Windows.Forms.Label();
             this.textBoxSearchTerm = new System.Windows.Forms.TextBox();
             this.labelValueFound = new System.Windows.Forms.Label();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -57,14 +57,14 @@
             this.buttonCreateDoubles.UseVisualStyleBackColor = true;
             this.buttonCreateDoubles.Click += new System.EventHandler(this.buttonCreateDoubles_Click);
             // 
-            // label1
+            // labelEnterSearchKey
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 243);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Enter Search Key:";
+            this.labelEnterSearchKey.AutoSize = true;
+            this.labelEnterSearchKey.Location = new System.Drawing.Point(13, 243);
+            this.labelEnterSearchKey.Name = "labelEnterSearchKey";
+            this.labelEnterSearchKey.Size = new System.Drawing.Size(109, 17);
+            this.labelEnterSearchKey.TabIndex = 3;
+            this.labelEnterSearchKey.Text = "Enter Search Key:";
             // 
             // textBoxSearchTerm
             // 
@@ -110,7 +110,7 @@
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.labelValueFound);
             this.Controls.Add(this.textBoxSearchTerm);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelEnterSearchKey);
             this.Controls.Add(this.buttonCreateDoubles);
             this.Controls.Add(this.buttonCreateIntegers);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -126,7 +126,7 @@
 
         private System.Windows.Forms.Button buttonCreateIntegers;
         private System.Windows.Forms.Button buttonCreateDoubles;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelEnterSearchKey;
         private System.Windows.Forms.TextBox textBoxSearchTerm;
         private System.Windows.Forms.Label labelValueFound;
         private System.Windows.Forms.Button buttonSearch;

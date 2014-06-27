@@ -70,7 +70,7 @@
             // 
             // textBoxSearchTerm
             // 
-            this.textBoxSearchTerm.Location = new System.Drawing.Point(129, 249);
+            this.textBoxSearchTerm.Location = new System.Drawing.Point(129, 245);
             this.textBoxSearchTerm.Name = "textBoxSearchTerm";
             this.textBoxSearchTerm.Size = new System.Drawing.Size(198, 25);
             this.textBoxSearchTerm.TabIndex = 4;
@@ -81,6 +81,7 @@
             this.labelValueFound.Name = "labelValueFound";
             this.labelValueFound.Size = new System.Drawing.Size(314, 26);
             this.labelValueFound.TabIndex = 5;
+            this.labelValueFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonSearch
             // 

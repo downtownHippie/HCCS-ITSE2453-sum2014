@@ -77,7 +77,7 @@ namespace LinearSearchT
                 labelValueFound.Text = "Must enter search key";
                 return;
             }
-            labelValueFound.Text = searchList.SearchButton(textBoxSearchTerm.Text);
+            labelValueFound.Text = searchList.Search(textBoxSearchTerm.Text);
         }
 
     }

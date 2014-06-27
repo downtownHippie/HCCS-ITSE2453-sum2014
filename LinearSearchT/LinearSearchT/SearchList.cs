@@ -8,8 +8,8 @@ namespace LinearSearchT
 {
     public class SearchList
     {
-        IList innerList;
-        Type type;
+        private IList innerList;
+        private Type type;
 
         public List<T> GetInnerList<T>()
         {
@@ -22,13 +22,16 @@ namespace LinearSearchT
             type = typeof(T).GenericTypeArguments[0];
         }
 
-        public string SearchButton(string searchvalue)
+        public string Search(string searchvalue)
         {
             try
             {
                 IComparable key = (IComparable)Convert.ChangeType(searchvalue, type);
                 int index = innerList.Search(key);
-                return setLabelValueFound(index, key);
+                if (index == -1)
+                    return "Value: " + key + " not found in list";
+                else
+                    return "Value: " + key + " found at index: " + index;
             }
             catch (Exception)
             {
@@ -40,15 +43,6 @@ namespace LinearSearchT
                 message.AppendFormat(" {0}", type.Name);
                 return message.ToString();
             }
-
-        }
-
-        private string setLabelValueFound<T>(int index, T key)
-        {
-            if (index == -1)
-                return "Value: " + key + " not found in list";
-            else
-                return "Value: " + key + " found at index: " + index;
         }
     }
 
@@ -81,8 +75,8 @@ namespace LinearSearchT
                 }
                 else
                 {
-                    // I hope we never get here!!!
-                    string message = "how'd you do that?, this is an invalid type {0} " + typeof(T).Name;
+                    // should never get here
+                    string message = "creation of " + typeof(T).Name + " has not been written";
                     throw new InvalidOperationException(message);
                 }
             }
@@ -90,11 +84,11 @@ namespace LinearSearchT
             return sl;
         }
         
-        public static int Search<T>(this IList lst, T key)
+        public static int Search<T>(this IList aList, T key)
             where T : IComparable
         {
-            for (int i = 0; i < lst.Count; i++)
-                if (lst[i].Equals(key))
+            for (int i = 0; i < aList.Count; i++)
+                if (aList[i].Equals(key))
                     return i;
             return -1;
         }

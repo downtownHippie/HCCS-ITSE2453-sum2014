@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-
 namespace LinearSearchT
 {
     public partial class LinearSearch : Form
     {
-        List<int> intListValues;
-        List<double> doubleListValues;
-        Type listType;
+        SearchList searchList = new SearchList();
 
         public LinearSearch()
         {
@@ -19,19 +16,42 @@ namespace LinearSearchT
 
         private void buttonCreateIntegers_Click(object sender, EventArgs e)
         {
-            this.intListValues = Program.createIntegers();
-            setTextBoxList(intListValues);
-            listType = typeof(int);
+            //createFromClick(typeof(int);
+            searchList = searchList.createValues<int>();
+            setTextBoxList(searchList.GetInnerList<int>());
             buttonSearch.Enabled = true;
         }
 
         private void buttonCreateDoubles_Click(object sender, EventArgs e)
         {
-            this.doubleListValues = Program.createDoubles();
-            setTextBoxList(doubleListValues);
-            listType = typeof(double);
+            //createFromClick(typeof(double));
+            searchList = searchList.createValues<double>();
+            setTextBoxList(searchList.GetInnerList<double>());
             buttonSearch.Enabled = true;
         }
+
+        private void buttonCreateChars_Click(object sender, EventArgs e)
+        {
+            //createFromClick(typeof(char));
+            searchList = searchList.createValues<char>();
+            setTextBoxList(searchList.GetInnerList<char>());
+            buttonSearch.Enabled = true;
+        }
+
+        private void buttonCreateStrings_Click(object sender, EventArgs e)
+        {
+            //createFromClick(typeof(string));
+            searchList = searchList.createValues<string>();
+            setTextBoxList(searchList.GetInnerList<string>());
+            buttonSearch.Enabled = true;
+        }
+
+        //private void createFromClick(Type type)
+        //{
+        //    searchList = searchList.createValues<type>();
+        //    setTextBoxList(searchList.GetInnerList<type>());
+        //    buttonSearch.Enabled = true;
+        //}
 
         private void setTextBoxList<T>(List<T> list)
         {
@@ -49,22 +69,6 @@ namespace LinearSearchT
             textBoxList.Text = sb.ToString();
         }
 
-        //private void setTextBoxList()
-        //{
-        //    textBoxList.Text = String.Empty;
-        //    StringBuilder sb = new StringBuilder();
-        //    sb.AppendFormat("{0}{1}", "Index".PadRight(10), "Value".PadRight(10));
-        //    sb.Append(Environment.NewLine);
-        //    for (int i = 0; i < intListValues.Count; i++)
-        //    {
-        //        sb.AppendFormat("{0}{1}", i.ToString().PadRight(10), intListValues[i].ToString().PadRight(10));
-        //        // don't add newline after last element
-        //        if (i < intListValues.Count - 1)
-        //            sb.Append(Environment.NewLine);
-        //    }
-        //    textBoxList.Text = sb.ToString();
-        //}
-
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
@@ -73,46 +77,8 @@ namespace LinearSearchT
                 labelValueFound.Text = "Must enter search key";
                 return;
             }
-            if (listType == typeof(int))
-            {
-                int key;
-                if (!Int32.TryParse(textBoxSearchTerm.Text, out key))
-                {
-                    labelValueFound.Text = "Search key must be an integer value";
-                    return;
-                }
-                int index = Program.Search(key, intListValues);
-                setLabelValueFound(index, key);
-            }
-            else if (listType == typeof(double))
-            {
-                double key;
-                if (!Double.TryParse(textBoxSearchTerm.Text, out key))
-                {
-                    labelValueFound.Text = "Search key must be a double value";
-                    return;
-                }
-                int index = Program.Search(key, doubleListValues);
-                setLabelValueFound(index, key);
-            }
-            else
-            {
-                // something really wrong happened!
-                labelValueFound.Text = "Something really wrong happened";
-                return;
-            }
+            labelValueFound.Text = searchList.SearchButton(textBoxSearchTerm.Text);
         }
 
-        void setLabelValueFound<T>(int index, T key)
-        {
-            if (index == -1)
-            {
-                labelValueFound.Text = "Value: " + key + " not found in list";
-            }
-            else
-            {
-                labelValueFound.Text = "Value: " + key + " found at index: " + index;
-            }
-        }
     }
 }

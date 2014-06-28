@@ -11,9 +11,9 @@ namespace LinearSearchT
         private IList innerList;
         private Type type;
 
-        public List<T> GetInnerList<T>()
+        public IList GetInnerList<T>()
         {
-            return (List<T>)innerList;
+            return innerList;
         }
 
         public void SetInnerList<T>(IList values)

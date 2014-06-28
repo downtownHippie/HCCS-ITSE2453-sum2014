@@ -73,14 +73,14 @@
             this.textBoxSearchTerm.Location = new System.Drawing.Point(129, 245);
             this.textBoxSearchTerm.Name = "textBoxSearchTerm";
             this.textBoxSearchTerm.Size = new System.Drawing.Size(198, 25);
-            this.textBoxSearchTerm.TabIndex = 0;
+            this.textBoxSearchTerm.TabIndex = 5;
             // 
             // labelValueFound
             // 
             this.labelValueFound.Location = new System.Drawing.Point(13, 273);
             this.labelValueFound.Name = "labelValueFound";
             this.labelValueFound.Size = new System.Drawing.Size(314, 26);
-            this.labelValueFound.TabIndex = 5;
+            this.labelValueFound.TabIndex = 7;
             this.labelValueFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonSearch
@@ -103,14 +103,14 @@
             this.textBoxList.Name = "textBoxList";
             this.textBoxList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxList.Size = new System.Drawing.Size(311, 154);
-            this.textBoxList.TabIndex = 7;
+            this.textBoxList.TabIndex = 4;
             // 
             // buttonCreateChars
             // 
             this.buttonCreateChars.Location = new System.Drawing.Point(13, 51);
             this.buttonCreateChars.Name = "buttonCreateChars";
             this.buttonCreateChars.Size = new System.Drawing.Size(154, 30);
-            this.buttonCreateChars.TabIndex = 8;
+            this.buttonCreateChars.TabIndex = 2;
             this.buttonCreateChars.Text = "Create Chars";
             this.buttonCreateChars.UseVisualStyleBackColor = true;
             this.buttonCreateChars.Click += new System.EventHandler(this.buttonCreateChars_Click);
@@ -120,7 +120,7 @@
             this.buttonCreateStrings.Location = new System.Drawing.Point(173, 51);
             this.buttonCreateStrings.Name = "buttonCreateStrings";
             this.buttonCreateStrings.Size = new System.Drawing.Size(154, 30);
-            this.buttonCreateStrings.TabIndex = 9;
+            this.buttonCreateStrings.TabIndex = 3;
             this.buttonCreateStrings.Text = "Create Strings";
             this.buttonCreateStrings.UseVisualStyleBackColor = true;
             this.buttonCreateStrings.Click += new System.EventHandler(this.buttonCreateStrings_Click);

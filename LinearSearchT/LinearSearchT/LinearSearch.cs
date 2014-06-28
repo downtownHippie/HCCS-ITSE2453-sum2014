@@ -38,7 +38,7 @@ namespace LinearSearchT
             where T : IComparable
         {
             searchList = searchList.createValues<T>();
-            setTextBoxList(searchList.GetInnerList<T>());
+            setTextBoxList(searchList.GetInnerList());
             buttonSearch.Enabled = true;
         }
 
@@ -63,7 +63,7 @@ namespace LinearSearchT
         {
             if (String.IsNullOrWhiteSpace(textBoxSearchTerm.Text))
             {
-                labelValueFound.Text = "Must enter search key";
+                labelValueFound.Text = "Please enter a search key";
                 return;
             }
             labelValueFound.Text = searchList.Search(textBoxSearchTerm.Text);

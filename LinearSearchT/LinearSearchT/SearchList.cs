@@ -11,7 +11,7 @@ namespace LinearSearchT
         private IList innerList;
         private Type type;
 
-        public IList GetInnerList<T>()
+        public IList GetInnerList()
         {
             return innerList;
         }
@@ -51,7 +51,6 @@ namespace LinearSearchT
             List<T> list = new List<T>();
             Random r = new Random();
             int n = r.Next(10, 51);
-
             for (int i = 0; i < n; i++)
             {
                 if (typeof(T) == typeof(double))
@@ -62,9 +61,8 @@ namespace LinearSearchT
                     list.Add((T)Convert.ChangeType(r.Next(33, 127), typeof(T)));
                 else if (typeof(T) == typeof(string))
                 {
-                    int x = r.Next(1, 11);
-                    char[] chars = new char[x];
-                    for (int d = 0; d < x; d++)
+                    char[] chars = new char[r.Next(1, 11)];
+                    for (int d = 0; d < chars.Length; d++)
                         chars[d] = (char)r.Next(33, 127);
                     list.Add((T)Convert.ChangeType(new string(chars), typeof(T)));
                 }

@@ -73,7 +73,7 @@
             this.textBoxSearchTerm.Location = new System.Drawing.Point(129, 245);
             this.textBoxSearchTerm.Name = "textBoxSearchTerm";
             this.textBoxSearchTerm.Size = new System.Drawing.Size(198, 25);
-            this.textBoxSearchTerm.TabIndex = 4;
+            this.textBoxSearchTerm.TabIndex = 0;
             // 
             // labelValueFound
             // 
@@ -85,6 +85,7 @@
             // 
             // buttonSearch
             // 
+            this.buttonSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonSearch.Enabled = false;
             this.buttonSearch.Location = new System.Drawing.Point(13, 306);
             this.buttonSearch.Name = "buttonSearch";
@@ -126,6 +127,7 @@
             // 
             // LinearSearch
             // 
+            this.AcceptButton = this.buttonSearch;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 346);

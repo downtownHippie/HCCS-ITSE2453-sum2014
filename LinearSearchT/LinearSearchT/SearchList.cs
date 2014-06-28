@@ -44,14 +44,9 @@ namespace LinearSearchT
                 return message.ToString();
             }
         }
-    }
 
-    // yeah, most of the time I would say that each class deserves it's own file
-    // but in my opinion that's not an absolute rule...
-    public static class SearchListHelper
-    {
-        public static SearchList createValues<T>(this SearchList sl)
-           where T : IComparable
+        public SearchList createValues<T>()
+          where T : IComparable
         {
             List<T> list = new List<T>();
             Random r = new Random();
@@ -80,10 +75,15 @@ namespace LinearSearchT
                     throw new InvalidOperationException(message);
                 }
             }
-            sl.SetInnerList<List<T>>(list);
-            return sl;
+            SetInnerList<List<T>>(list);
+            return this;
         }
-        
+    }
+
+    // yeah, most of the time I would say that each class deserves it's own file
+    // but in my opinion that's not an absolute rule...
+    public static class SearchListHelper
+    {
         public static int Search<T>(this IList aList, T key)
             where T : IComparable
         {

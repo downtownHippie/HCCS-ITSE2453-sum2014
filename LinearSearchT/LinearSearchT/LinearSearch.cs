@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 using System.Windows.Forms;
 
@@ -16,44 +16,33 @@ namespace LinearSearchT
 
         private void buttonCreateIntegers_Click(object sender, EventArgs e)
         {
-            //createFromClick(typeof(int);
-            searchList = searchList.createValues<int>();
-            setTextBoxList(searchList.GetInnerList<int>());
-            buttonSearch.Enabled = true;
+            createFromClick<int>();
         }
 
         private void buttonCreateDoubles_Click(object sender, EventArgs e)
         {
-            //createFromClick(typeof(double));
-            searchList = searchList.createValues<double>();
-            setTextBoxList(searchList.GetInnerList<double>());
-            buttonSearch.Enabled = true;
+            createFromClick<double>();
         }
 
         private void buttonCreateChars_Click(object sender, EventArgs e)
         {
-            //createFromClick(typeof(char));
-            searchList = searchList.createValues<char>();
-            setTextBoxList(searchList.GetInnerList<char>());
-            buttonSearch.Enabled = true;
+            createFromClick<char>();
         }
 
         private void buttonCreateStrings_Click(object sender, EventArgs e)
         {
-            //createFromClick(typeof(string));
-            searchList = searchList.createValues<string>();
-            setTextBoxList(searchList.GetInnerList<string>());
+            createFromClick<string>();
+        }
+
+        private void createFromClick<T>()
+            where T : IComparable
+        {
+            searchList = searchList.createValues<T>();
+            setTextBoxList(searchList.GetInnerList<T>());
             buttonSearch.Enabled = true;
         }
 
-        //private void createFromClick(Type type)
-        //{
-        //    searchList = searchList.createValues<type>();
-        //    setTextBoxList(searchList.GetInnerList<type>());
-        //    buttonSearch.Enabled = true;
-        //}
-
-        private void setTextBoxList<T>(List<T> list)
+        private void setTextBoxList(IList list)
         {
             textBoxList.Text = String.Empty;
             StringBuilder sb = new StringBuilder();

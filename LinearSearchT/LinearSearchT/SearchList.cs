@@ -16,7 +16,7 @@ namespace LinearSearchT
             return innerList;
         }
 
-        public void SetInnerList<T>(IList values)
+        private void SetInnerList<T>(IList values)
         {
             innerList = values;
             type = typeof(T).GenericTypeArguments[0];

@@ -1,0 +1,3 @@
+﻿After I'd written a solution for this program I discussed it with a professional programmer friend of mine about how to make it more generic.  After some discussion we arrived at the basis for this structure. This also moved all logic out of the gui and out of Program.cs and into the new object.  I then added buttons to create random lists of chars and strings to search.
+
+He also taught me about static helper methods in static classes, so I modified your Search method (signature) to take advantage of this.

@@ -50,6 +50,7 @@
     <Compile Include="LinearSearch.Designer.cs">
       <DependentUpon>LinearSearch.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LinearSearch.resx">
@@ -77,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ReadMeFirst.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

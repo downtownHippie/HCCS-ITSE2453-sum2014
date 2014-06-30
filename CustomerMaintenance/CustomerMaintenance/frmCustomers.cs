@@ -80,7 +80,7 @@ namespace CustomerMaintenance
             {
                 Customer customer = cl[i];
                 frmEditCustomer frmE = new frmEditCustomer(customer);
-                cl[i] = frmE.GetNewCustomer();
+                cl[i] = frmE.GetCustomer();
             }
         }
     }

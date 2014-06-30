@@ -18,7 +18,7 @@ namespace CustomerMaintenance
 
         private Customer customer = null;
 
-        public Customer GetNewCustomer()
+        public Customer GetCustomer()
         {
             this.ShowDialog();
             return customer;

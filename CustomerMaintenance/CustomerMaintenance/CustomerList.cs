@@ -9,23 +9,13 @@ namespace CustomerMaintenance
         // no set method because Count isn't settable only gettable
         public int Count
         {
-            get
-            {
-                return customers.Count;
-            }
+            get { return customers.Count; }
         }
 
         public Customer this[int i]
         {
-            get
-            {
-                return customers[i];
-            }
-            set
-            {
-                customers[i] = value;
-                Changed(this);
-            }
+            get { return customers[i]; }
+            set { customers[i] = value; Changed(this); }
         }
 
         public void Add(Customer customer)
@@ -34,10 +24,24 @@ namespace CustomerMaintenance
             Changed(this);
         }
 
+        public static CustomerList operator +(CustomerList cl, Customer customer)
+        {
+            if (customer != null)
+                cl.Add(customer);
+            return cl;
+        }
+
         public void Remove(Customer customer)
         {
             customers.Remove(customer);
             Changed(this);
+        }
+
+        public static CustomerList operator -(CustomerList cl, Customer customer)
+        {
+            if (customer != null)
+                cl.Remove(customer);
+            return cl;
         }
 
         public void Fill()
@@ -57,9 +61,7 @@ namespace CustomerMaintenance
         protected virtual void OnChanged(CustomerList cl)
         {
             if (Changed != null)
-            {
                 Changed(cl);
-            }
         }
     }
 }

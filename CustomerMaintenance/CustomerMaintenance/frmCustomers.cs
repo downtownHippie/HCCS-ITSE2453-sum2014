@@ -4,10 +4,9 @@ using System.Windows.Forms;
 namespace CustomerMaintenance
 {
     // (c) 2010 by Mike Murach & Associates, Inc. 
-  
+
     public partial class frmCustomers : Form
     {
-        //private List<Customer> customers = null;
         CustomerList cl = new CustomerList();
 
         public frmCustomers()
@@ -32,40 +31,24 @@ namespace CustomerMaintenance
         {
             lstCustomers.Items.Clear();
             for (int i = 0; i < cl.Count; i++)
-            {
                 lstCustomers.Items.Add(cl[i].GetDisplayText());
-            }
-            //foreach (Customer c in customers)
-            //{
-            //    lstCustomers.Items.Add(c.GetDisplayText());
-            //}
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmAddCustomer addCustomerForm = new frmAddCustomer();
-            Customer customer = addCustomerForm.GetNewCustomer();
+            Customer customer = new frmAddCustomer().GetNewCustomer();
             if (customer != null)
-            {
-                cl.Add(customer);
-            }
+                cl += customer;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            int i = lstCustomers.SelectedIndex;
-            if (i != -1)
-            {
-                Customer customer = cl[i];
-                string message = "Are you sure you want to delete "
-                    + customer.FirstName + " " + customer.LastName + "?";
-                DialogResult button = MessageBox.Show(message, "Confirm Delete",
-                    MessageBoxButtons.YesNo);
-                if (button == DialogResult.Yes)
-                {
-                    cl.Remove(customer);
-                }
-            }
+            if ((lstCustomers.SelectedIndex != -1) &&
+                    (MessageBox.Show("Are you sure you want to delete "
+                    + cl[lstCustomers.SelectedIndex].FirstName + " "
+                    + cl[lstCustomers.SelectedIndex].LastName + "?",
+                    "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.Yes))
+                cl -= cl[lstCustomers.SelectedIndex];
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -75,13 +58,9 @@ namespace CustomerMaintenance
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            int i = lstCustomers.SelectedIndex;
-            if (i != -1)
-            {
-                Customer customer = cl[i];
-                frmEditCustomer frmE = new frmEditCustomer(customer);
-                cl[i] = frmE.GetCustomer();
-            }
+            if (lstCustomers.SelectedIndex != -1)
+                cl[lstCustomers.SelectedIndex] = 
+                    new frmEditCustomer(cl[lstCustomers.SelectedIndex]).GetCustomer();
         }
     }
 }

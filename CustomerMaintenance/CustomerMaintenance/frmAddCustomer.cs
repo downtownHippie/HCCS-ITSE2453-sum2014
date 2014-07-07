@@ -24,8 +24,7 @@ namespace CustomerMaintenance
         {
             if (IsValidData())
             {
-                customer = new Customer(txtFirstName.Text, txtLastName.Text,
-                    txtEmail.Text);
+                customer = new Customer(txtFirstName.Text, txtLastName.Text, txtEmail.Text);
                 this.Close();
             }
         }

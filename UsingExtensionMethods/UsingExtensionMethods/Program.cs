@@ -6,7 +6,7 @@ namespace UsingExtensionMethods
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter an integer, a phrase, or \"Quit\" to exit:");
+            Console.WriteLine("Enter an integer, a word, or \"Quit\" to exit:");
             string input = Console.ReadLine();
             while (input != "Quit")
             {
@@ -19,7 +19,7 @@ namespace UsingExtensionMethods
                     if (!String.IsNullOrWhiteSpace(input))
                         Console.WriteLine("The PigLatin translation is:\n    {0}", input.ConvertToPigLatin());
                 }
-                Console.WriteLine("Enter an integer, a phrase, or \"Quit\" to exit:");
+                Console.WriteLine("Enter an integer, a word, or \"Quit\" to exit:");
                 input = Console.ReadLine();
             }
             Console.WriteLine("Press <enter> to continue");

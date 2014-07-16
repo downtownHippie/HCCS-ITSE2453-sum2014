@@ -17,29 +17,15 @@ namespace UsingExtensionMethods
             return sum;
         }
 
-        public static string ConvertToPigLatin(this string sentence)
+        public static string ConvertToPigLatin(this string word)
         {
-            string[] words = sentence.Split();
             StringBuilder pigLatin = new StringBuilder();
-            for (int i = 0; i < words.Length; i++)
+            for (int i = 1; i < word.Length; i++)
             {
-                StringBuilder newWord = new StringBuilder();
-                for (int j = 1; j < words[i].Length; j++)
-                {
-                    newWord.Append(words[i][j]);
-                }
-                if (Char.IsUpper(words[i][0]))
-                {
-                    newWord[0] = Char.ToUpper(newWord[0]);
-                    newWord.Append(Char.ToLower(words[i][0]));
-                }
-                else
-                    newWord.Append(words[i][0]);
-                newWord.Append("ay");
-                pigLatin.Append(newWord);
-                if (i <= words.Length - 1)
-                    pigLatin.Append(" ");
+                pigLatin.Append(word[i]);
             }
+            pigLatin.Append(word[0]);
+            pigLatin.Append("ay");
             return pigLatin.ToString();
         }
     }

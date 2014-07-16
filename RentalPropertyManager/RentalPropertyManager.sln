@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RentalPropertyManager", "RentalPropertyManager\RentalPropertyManager.csproj", "{B1866DA1-F96F-4494-A8B5-2B0148755505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyTypes", "PropertyTypes\PropertyTypes.csproj", "{CEB7DA6E-D185-479A-BC1F-476D25D30EC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1866DA1-F96F-4494-A8B5-2B0148755505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1866DA1-F96F-4494-A8B5-2B0148755505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1866DA1-F96F-4494-A8B5-2B0148755505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1866DA1-F96F-4494-A8B5-2B0148755505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEB7DA6E-D185-479A-BC1F-476D25D30EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEB7DA6E-D185-479A-BC1F-476D25D30EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEB7DA6E-D185-479A-BC1F-476D25D30EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEB7DA6E-D185-479A-BC1F-476D25D30EC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

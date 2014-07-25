@@ -1,0 +1,4 @@
+me|mine|me@you.there
+firstname4|lastName|emailAdderss@place.tld
+you|there|other@place.tld
+someone|onesome|one@some.one

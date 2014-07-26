@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -103,6 +104,9 @@
     <Resource Include="Images\southafrica.png" />
     <Resource Include="Images\spain.png" />
     <Resource Include="Images\unitedstates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\United-Nations-Flag-2-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

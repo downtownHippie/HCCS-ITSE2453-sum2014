@@ -1,23 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FlagQuiz
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private List<KeyValuePair<string, string>> flags = new List<KeyValuePair<string, string>>
@@ -38,9 +26,7 @@ namespace FlagQuiz
         public MainWindow()
         {
             InitializeComponent();
-
             flags.ForEach(f => cbCountry.Items.Add(f.Key));
-
             setNextFlag();
         }
 
@@ -51,32 +37,26 @@ namespace FlagQuiz
             else
                 if (cbCountry.SelectedValue.Equals(answer))
                 {
-                    changeScore(true);
+                    raiseScore(true);
                     btnSubmit.IsEnabled = false;
                     btnNextFlag.IsEnabled = true;
                     cbCountry.IsEnabled = false;
                 }
                 else
                 {
-                    changeScore(false);
-                    MessageBox.Show("Make another selection");
+                    raiseScore(false);
                     btnSubmit.IsEnabled = false;
+                    MessageBox.Show("Make another selection");
                 }
         }
 
-        private void changeScore(bool wasIRight)
+        private void raiseScore(bool wasIRight)
         {
             string[] score = tbScore.Text.Split('/');
-            int tries = Int32.Parse(score[1]);
             int right = Int32.Parse(score[0]);
-            if (wasIRight)
-            {
-                tbSomeWords.Text = "Correct";
-                right++;
-            }
-            else
-                tbSomeWords.Text = "Incorrect";
-            tries++;
+            int tries = Int32.Parse(score[1]) + 1;
+            tbResult.Text = wasIRight ? "Correct" : "Incorrect";
+            right = wasIRight ? right + 1 : right;
             tbScore.Text = right + "/" + tries;
         }
 
@@ -93,9 +73,9 @@ namespace FlagQuiz
             if (flags.Count == 0)
             {
                 string[] score = tbScore.Text.Split('/');
-                int tries = Int32.Parse(score[1]);
                 int right = Int32.Parse(score[0]);
-                MessageBox.Show("Congratulations your score is " + right + " correct in " + tries + " tries");
+                int tries = Int32.Parse(score[1]);
+                MessageBox.Show("Congratulations your score is " + right + " correct in " + tries + " tries.");
                 this.Close();
             }
             else

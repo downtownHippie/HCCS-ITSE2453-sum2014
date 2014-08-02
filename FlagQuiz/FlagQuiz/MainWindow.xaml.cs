@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace FlagQuiz
@@ -82,6 +83,9 @@ namespace FlagQuiz
             {
                 int i = r.Next(0, flags.Count);
                 answer = flags[i].Key;
+                //ImageSourceConverter converter = new ImageSourceConverter();
+                //ImageSource source = (ImageSource)converter.ConvertFromString(flags[i].Value);
+                //imgFlag.Source = source;
                 imgFlag.Source = new BitmapImage(new Uri(flags[i].Value, UriKind.Relative));
                 flags.RemoveAt(i);
             }

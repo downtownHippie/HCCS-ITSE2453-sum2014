@@ -52,9 +52,8 @@ namespace CashRegister
 
         private void btNumPad_Click(object sender, RoutedEventArgs e)
         {
-            Button b = (Button)sender;
             StringBuilder sb = new StringBuilder(tbAmount.Text);
-            sb.Append(b.Tag);
+            sb.Append(((Button)sender).Tag);
             tbAmount.Text = sb.ToString();
         }
     }
